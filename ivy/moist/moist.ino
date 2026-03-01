@@ -8,6 +8,9 @@
 int sensorPin = A0;
 int sensorValue = 0;
 
+//piezo
+int buzzerPin = D6;
+
 //servo info
 Servo WateringBot;
 int servoPin = D5;
@@ -63,7 +66,7 @@ void setup() {
   Serial.println(WiFi.localIP());
 
   //startup message
-  ivy.send("I'm ready for water!");
+  ivy.send("ivy is online and ready to yap \n Use /help to see all my commands!!");
 
   //-- server routes for nodejs commands
   
@@ -80,7 +83,7 @@ void setup() {
     WateringBot.write(45); //close
     digitalWrite(LED_BUILTIN, HIGH);
     
-    ivy.send("I'm hydrated!");
+    ivy.send("Im watered bih");
   });
 
   //mode switcher
@@ -89,13 +92,51 @@ void setup() {
     if (val == "manual") isManual = true;
     else isManual = false;
     server.send(200, "text/plain", "Mode updated");
-    ivy.send("Mode switched to " + val);
+    ivy.send("mode switched to " + val);
   });
 
   //moisture data for /update
   server.on("/update", []() {
     int currentMoisture = analogRead(A0);
     server.send(200, "text/plain", String(currentMoisture));
+  });
+
+
+  //scream function
+  server.on("/scream", [](){
+    server.send(200, "text/plain", "AHHHHHHH!!!");
+    for(int i = 0; i < 5; i++) {
+      //play sound
+      tone(buzzerPin, 2000 + (i * 500), 200);
+      delay(100);
+      tone(buzzerPin, 4000, 200);
+      delay(100);
+    }
+    //stop screamin
+    noTone(buzzerPin);
+  });
+
+  //led func
+  server.on("/led", []() {
+    //turn on led
+    digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));
+    server.send(200, "text/plain", "LED ON");
+  });
+
+
+  //change threshold
+  server.on("/threshold", []() {
+    if(server.hasArg("val")) {
+      String newVal = server.arg("val");
+
+      //convert new string into int
+      moistureThreshold = newVal.toInt();
+      server.send(200, "text/plain", "Threshold updated to " + String(moistureThreshold));
+      Serial.print("New Threshold set: ");
+      Serial.println(moistureThreshold);
+    } else {
+      server.send(400, "text/plain", "Missing Value Argument");
+    }
   });
 
   server.begin();
@@ -118,7 +159,7 @@ void loop() {
         isWatering = true; 
         
         //then send the message
-        ivy.send("I'm thirsty....again.... Watering...");
+        ivy.send("My shit is too dry. Watering...");
       }
     } else {
       if (isWatering) {
@@ -128,10 +169,11 @@ void loop() {
         isWatering = false;
         
         //then send the message
-        ivy.send("Finally hydrated....");
+        ivy.send("Finally my shits been watered....");
       }
     }
   }
 
   delay(1000);
+}
 }

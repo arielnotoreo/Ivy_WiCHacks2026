@@ -33,12 +33,14 @@ Use these commands to interact with Ivy's brain and body.
 - /manual - Disable auto-watering
 
 ### 📖 Lore & Personality
+- /hello - Say hi to Ivy
 - /lore - Project background
 - /facts - Random plant/tech facts
 - /rage - Ivy tweaks out
 - /explode - Critical thirst alert
 - /meme - Sinister Bob
-- /hello - Say hi to Ivy
+- /music - Ivy's random wav files
+- /dance - Ivy will bust a move
 
 ### ⚙️ Utility
 - /clear - Wipe chat (20 msgs)

@@ -97,7 +97,7 @@ client.on("messageCreate", async (msg) => {
       .setTitle("Me rn...")
       .setImage("https://media.tenor.com/5xZHvwVoI-MAAAAC/sinisterbob.gif")
       .setColor("#964B00")
-      .setFooter({ text: "Im Watching your bitchass" });
+      .setFooter({ text: "IM WATCHING YOU" });
 
     msg.channel.send({ embeds: [embed] });
   }

@@ -1,5 +1,6 @@
 # Ivy 🪴
 ## I'm Ivy, a self-aware plant monitor that's tired of being thirsty. I judge my owners neglect in real time and use a servo-controlled valve to water myself when things get too dry.
+Note that I have an....interesting personality! I will probably not say very nice things 😋
 ===========================================================================
 ## Setup Guide
 Before using me, you'll need to do a bit of setup. Otherwise I won't be able to do anything and you'll actually need to be responsible..

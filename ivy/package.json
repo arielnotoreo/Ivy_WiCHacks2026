@@ -1,0 +1,9 @@
+{
+  "name": "ivy-bridge",
+  "version": "1.0.0",
+  "main": "bot.js",
+  "dependencies": {
+    "discord.js": "^14.13.0",
+    "axios": "^1.6.0"
+  }
+}

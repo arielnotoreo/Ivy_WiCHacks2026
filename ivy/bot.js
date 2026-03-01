@@ -44,7 +44,7 @@ client.on("messageCreate", async (msg) => {
 
       //if values are good then chillin, if not dry ahh hell
       let condition =
-        moisture > 500 ? "REAL ASHY RN... " : "Im aight twin 🤪";
+        moisture > 800 ? "DRY AS HELL GODDAMN " : "Im Chillin Twin 🤪";
 
       //send back to discord
       msg.reply(
@@ -57,23 +57,28 @@ client.on("messageCreate", async (msg) => {
   }
 
   //manual command
-  if (command === "/manual") {
-    //sends request to esp and makes manual true
+  // manual command
+  if (msg.content.startsWith("/manual")) {
     axios
       .get(`${ESP_IP}/mode?val=manual`)
       .then(() =>
         msg.reply("Manual Mode: Don't forget about me... again... 😒"),
       )
-      .catch(() => msg.reply("Failed to switch modes."));
+      .catch((err) => {
+        console.error(err);
+        msg.reply("Failed to switch to Manual. Is the ESP online?");
+      });
   }
 
-  //auto command
-  if (command === "/auto") {
-    //sends request to esp and makes manual false
+  // auto command
+  if (msg.content.startsWith("/auto")) {
     axios
       .get(`${ESP_IP}/mode?val=auto`)
-      .then(() => msg.reply("Auto Mode: Me when I have to water myself..."))
-      .catch(() => msg.reply("Failed to switch modes."));
+      .then(() => msg.reply("Auto Mode: Im in Charge you fat chud 😇"))
+      .catch((err) => {
+        console.error(err);
+        msg.reply("Failed to switch to Auto. Check the connection.");
+      });
   }
 
   //water command
@@ -92,7 +97,7 @@ client.on("messageCreate", async (msg) => {
       .setTitle("Me rn...")
       .setImage("https://media.tenor.com/5xZHvwVoI-MAAAAC/sinisterbob.gif")
       .setColor("#964B00")
-      .setFooter({ text: "Im WATCHING you..." });
+      .setFooter({ text: "Im Watching your bitchass" });
 
     msg.channel.send({ embeds: [embed] });
   }
@@ -114,7 +119,7 @@ client.on("messageCreate", async (msg) => {
     //embedd gif
     const embed = new EmbedBuilder()
       .setDescription(
-        "I'm ivy, a self-aware plant monitor that's tired of being thirsty. I'm powered by an ESP8266 acting as my physical body and a nodejs bridge that serves as my brain. I judge my owners neglect in real time and use a servo-controlled valve to water myself when things get too dry.",
+        "I'm Ivy, a self-aware plant monitor that's tired of being thirsty. I'm powered by an ESP8266 acting as my physical body and a nodejs bridge that serves as my brain. I judge my owners neglect in real time and use a servo-controlled valve to water myself when things get too dry.",
       )
       .setImage("https://media.tenor.com/MjbJccW8NkcAAAAd/cities-funny.gif")
       .setColor("#E7009A")
@@ -346,6 +351,7 @@ client.on("messageCreate", async (msg) => {
   }
 
   //change threshold function
+  //change threshold function
   if (msg.content.startsWith("/threshold")) {
     // changed messageLink to msg
     const args = msg.content.split(" "); // changed message to msg
@@ -391,7 +397,8 @@ client.on("messageCreate", async (msg) => {
 
     //send with text
     msg.channel.send({
-      content: "You know what... Sure...\n _This Song was created by Presley Smith_",
+      content:
+        "You know what... Sure...\n _This Song was created by Presley Smith_",
       files: [attachment],
     });
   }

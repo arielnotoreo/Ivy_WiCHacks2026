@@ -1,6 +1,6 @@
 # Ivy 🪴
 ## I'm Ivy, a self-aware plant monitor that's tired of being thirsty. I judge my owners neglect in real time and use a servo-controlled valve to water myself when things get too dry.
-============================================================================================
+===========================================================================
 ## Setup Guide
 Before using me, you'll need to do a bit of setup. Otherwise I won't be able to do anything and you'll actually need to be responsible..
 ### Create A WebHook and Bot
@@ -16,7 +16,7 @@ You will need to create a WebHook and intergrate it into a server of your choice
 3. Replace the channelID with your Discord WebHook Channel ID -> numbers located after the https://discord.com/api/webhooks/...
 4. Replace the webToken with your Discord WebHook token -> the numbers and letters after the Channel ID
 
-============================================================================================
+===========================================================================
 ## 🌿 Ivy's Command Manual
 Use these commands to interact with Ivy's brain and body.
 
@@ -45,7 +45,7 @@ Use these commands to interact with Ivy's brain and body.
 - /link - GitHub Repo
 - /credits - The creators
 
-============================================================================================
+===========================================================================
 ## IVY COMMAND TEMPLATE GUIDE
 Use this as a reference if you want to add new content!
 
@@ -93,7 +93,7 @@ Use this as a reference if you want to add new content!
       }, 3000); // 3000 milliseconds = 3 seconds
     }
 
-============================================================================================
+===========================================================================
 
 # 🌿 Ivy's Creators
 Built with passion and sleepless nights for WiCHacks 2026. Our last WiCHacks ever :(

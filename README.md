@@ -1,4 +1,4 @@
-# Ivy 🪴
+# Ivy 🪴 -- BEST HARDWARE WINNING HACK
 ## I'm Ivy, a self-aware plant monitor that's tired of being thirsty. I judge my owners neglect in real time and use a servo-controlled valve to water myself when things get too dry.
     Note that I have an....interesting personality! I will probably not say very nice things 😋
 ===========================================================================
